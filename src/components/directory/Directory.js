@@ -20,7 +20,7 @@ class Directory extends Component {
               {
                 title: 'jackets',
                 // imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-                imageUrl: '/images/clothes.jpg',
+                imageUrl: '/images/jacket.jpg',
                 id: 2,
                 linkUrl: 'shop/jackets',
                 size: ''
@@ -38,19 +38,26 @@ class Directory extends Component {
                 title: 'womens',
                 // imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
                 imageUrl: '/images/woman-half-resized.png',
-                size: 'large',
                 id: 4,
                 linkUrl: 'shop/womens',
-                size: 'large'
+                // size: 'large'
               },
               {
                 title: 'mens',
                 // imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                 imageUrl: '/images/man-fashion.jpg',
-                size: 'large',
                 id: 5,
                 linkUrl: 'shop/mens',
-                size: 'large'
+                // size: 'large'
+              },
+              {
+                title: 'kids',
+                // imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+                imageUrl: '/images/kids-shirt.jpg',
+                id: 6,
+                linkUrl: 'shop/kids',
+                // size: 'large',
+
               }
             ]
         };
@@ -58,7 +65,7 @@ class Directory extends Component {
     render() {
         return (
             <div className="directory-menu">
-                {this.state.sections.map(({ id, title, imageUrl, size }) => <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} /> )}
+                {this.state.sections.map(({ id, ...sectionProps }) => <MenuItem key={id} {...sectionProps} /> )}
             </div>
         );
     }
