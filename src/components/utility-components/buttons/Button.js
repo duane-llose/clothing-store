@@ -3,7 +3,13 @@ import './button.scss';
 
 function Button(props) {
     return (
-        <button type={props.type} className={` ${props.isGoogleSignIn ? 'btn-google-sign-in' : '' } btn`} onClick={props.onClick}>{props.children}</button>
+        <button 
+        type={props.type} 
+        className={` 
+        ${props.inverted ? 'inverted' : '' } 
+        ${props.isGoogleSignIn ? 'btn-google-sign-in' : '' } 
+        btn`} 
+        onClick={props.onClick}>{props.children}</button>
     );
 }
 

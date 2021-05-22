@@ -9,8 +9,8 @@ function ProductCollection({ title, items, routeName }) {
         <div className='product-collection'>
             <h1 className='title'>{title.toUpperCase()}</h1>
             <div className='preview'>
-                {items.filter((item, idx) => idx < 4).map(({id, ...itemProps}) => (
-                    <ProductItem key={id} {...itemProps}>{itemProps.name}</ProductItem>
+                {items.filter((item, idx) => idx < 4).map((item) => (
+                    <ProductItem key={item.id} item={item}>{item.name}</ProductItem>
                 ))}
             </div>
         </div>
