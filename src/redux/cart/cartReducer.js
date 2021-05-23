@@ -1,6 +1,5 @@
 import cartActionTypes from './cartActionTypes';
-import { addItemToCart } from './cartUtilities';
-
+import { addItemToCart, removeItemFromCart, removeItemCollectionFromCart } from './cartUtilities';
 
 const initialState = {
     isCartDropdownOpen: false,
@@ -22,6 +21,25 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 // cartItems: [...state.cartItems, action.payload]
                 cartItems: addItemToCart(state.cartItems, action.payload)
+            }
+        case cartActionTypes.REMOVE_ITEM:
+            return {
+                ...state,
+                // cartItems: [...state.cartItems, action.payload]
+                cartItems: removeItemFromCart(state.cartItems, action.payload)
+            }
+        case cartActionTypes.REMOVE_ITEM_COLLECTION:
+            // const newCartItems = [];
+            // const cartItems = [...state.cartItems];
+            // const newCartItems = [];
+            // Object.values(cartItems).forEach(cart => {
+            //     if (cart['id'] !== action.payload.id) {
+            //         newCartItems.push(cart);
+            //     }
+            // })
+            return {
+                ...state,
+                cartItems: removeItemCollectionFromCart(state.cartItems, action.payload)
             }
         default: 
             return state;
